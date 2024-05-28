@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Popins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Alpine js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="./css/output.css" rel="stylesheet" />
+  </head>
+  <body class="font-poppins">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50"
+      x-data="{ scroll: false }"
+      @scroll.window="scroll = (window.pageYOffset > 100) ? true : false"
+      :class="{ 'bg-white dark:bg-dark-color border-b border-colors-primary shadow-lg': scroll, 'bg-transparent': !scroll }"
+    >
+      <div class="bg-white dark:bg-dark-color">
+        <nav
+          class="container flex justify-between items-center"
+          x-data="{isOpen:false}"
+        >
+          <!-- Logo -->
+          <div
+            class="text-colors-primary text-2xl md:text-3xl font-bold py-5"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <a href="#beranda">
+              <h1>SM<span class="text-slate-800 dark:text-white">KN1</span></h1>
+            </a>
+          </div>
+          <!-- End Logo -->
+
+          <!-- Nav link -->
+          <ul
+            class="hidden lg:flex items-center justify-center gap-8 text-sm text-slate-600 tracking-wide dark:text-white"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+          >
+            <li>
+              <a
+                href="#beranda"
+                class="text-colors-primary hover:text-colors-primary font-semibold"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a href="#profile" class="hover:text-colors-primary"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a href="#program" class="hover:text-colors-primary">Program</a>
+            </li>
+            <li>
+              <a href="#extra" class="hover:text-colors-primary"
+                >Extrakulikuler</a
+              >
+            </li>
+
+            <li>
+              <a href="#berita" class="hover:text-colors-primary">Berita</a>
+            </li>
+            <li>
+              <a href="#galeri" class="hover:text-colors-primary">Galeri</a>
+            </li>
+          </ul>
+          <!-- End Navlink -->
+
+          <!-- Mobile Menu -->
+          <!-- Hamburger -->
+          <div
+            id="hamburger"
+            class="lg:hidden cursor-pointer z-50"
+            @click="isOpen = !isOpen"
+          >
+            <div :class="isOpen ? 'hidden' : ''" class="text-white">
+              <i
+                class="fa-solid fa-bars bg-colors-primary/40 p-2 rounded-full"
+              ></i>
+            </div>
+
+            <div :class="isOpen ? '' : 'hidden'" class="text-white">
+              <i
+                class="fa-solid fa-xmark bg-colors-primary/40 py-2 px-[9px] rounded-full"
+              ></i>
+            </div>
+          </div>
+          <!-- End Humberger -->
+
+          <!-- Nav link Mobile -->
+          <div
+            class="lg:hidden bg-white dark:bg-dark-color h-[100vh] absolute inset-0"
+            x-show="isOpen"
+            x-transition:enter="transition ease duration-700 transform"
+            x-transition:enter-start="opacity-0 translate-x-full"
+            x-transition:enter-end="opacity-100 -translate-x-0"
+            x-transition:leave="transition ease duration-1000 transform"
+            x-transition:leave-start="opacity-100 -translate-x-0"
+            x-transition:leave-end="opacity-0 translate-x-full"
+          >
+            <ul class="h-full grid place-items-center py-20 dark:text-white">
+              <li>
+                <a
+                  href="#beranda"
+                  class="text-colors-primary hover:text-colors-primary font-semibold"
+                  @click="isOpen = !isOpen"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#profile"
+                  class="hover:text-colors-primary"
+                  @click="isOpen = !isOpen"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#program"
+                  class="hover:text-colors-primary"
+                  @click="isOpen = !isOpen"
+                  >Program</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#extra"
+                  class="hover:text-colors-primary"
+                  @click="isOpen = !isOpen"
+                  >Extrakulikuler</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#berita"
+                  class="hover:text-colors-primary"
+                  @click="isOpen = !isOpen"
+                  >Berita</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#galeri"
+                  class="hover:text-colors-primary"
+                  @click="isOpen = !isOpen"
+                  >Galeri</a
+                >
+              </li>
+
+              <button class="btn">Contact</button>
+            </ul>
+          </div>
+          <!-- End Navling Mobile -->
+          <!-- End Mobile Menu -->
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Hero -->
+    <div class="py-20 container">
+      <div>tes</div>
+    </div>
+    <!-- End Hero -->
+
+    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+  </body>
+</html>
