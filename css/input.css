@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[x-cloak] {
+  display: none !important;
+}
+
+.btn {
+  @apply py-3 px-6 inline-block rounded-xl transition-colors duration-300 bg-colors-primary border border-colors-primary text-white hover:bg-transparent   hover:text-gray-700;
+}

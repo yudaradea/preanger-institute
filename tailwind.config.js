@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('tailwindcss/colors');
 module.exports = {
   content: ['*.{html,js}'],
   theme: {
@@ -14,20 +13,18 @@ module.exports = {
         '2xl': '6rem',
       },
       screens: {
-        sm: '480px',
-        md: '768px',
-        lg: '976px',
-        xl: '1440px',
+        sm: '600px',
+        md: '728px',
+        lg: '984px',
+        xl: '1240px',
+        '2xl': '1496px',
       },
       center: true,
     },
 
     colors: {
-      'colors-primary': '#362FD9',
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
+      'colors-primary': '#3F83F8',
+      'color-body': '#F1F4F5',
     },
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],

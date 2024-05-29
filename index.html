@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,13 +26,13 @@
     />
     <link href="./css/output.css" rel="stylesheet" />
   </head>
-  <body class="font-poppins">
+  <body class="font-poppins text-gray-700">
     <!-- Header -->
     <header
       class="sticky top-0 z-50"
       x-data="{ scroll: false }"
-      @scroll.window="scroll = (window.pageYOffset > 100) ? true : false"
-      :class="{ 'bg-white dark:bg-dark-color border-b border-colors-primary shadow-lg': scroll, 'bg-transparent': !scroll }"
+      @scroll.window="scroll = (window.pageYOffset > 70) ? true : false"
+      :class="{ 'bg-white dark:bg-dark-color border-b border-gray-300 shadow-lg': scroll, 'bg-transparent': !scroll }"
     >
       <div class="bg-white dark:bg-dark-color">
         <nav
@@ -46,14 +46,14 @@
             data-aos-duration="1000"
           >
             <a href="#beranda">
-              <h1>SM<span class="text-slate-800 dark:text-white">KN1</span></h1>
+              <img src="assets/img/logo.png" alt="" class="h-8 md:h-10" />
             </a>
           </div>
           <!-- End Logo -->
 
           <!-- Nav link -->
           <ul
-            class="hidden lg:flex items-center justify-center gap-8 text-sm text-slate-600 tracking-wide dark:text-white"
+            class="hidden md:flex items-center gap-8 text-[15px] text-gray-600 tracking-wide dark:text-white"
             data-aos="zoom-in"
             data-aos-duration="1000"
           >
@@ -61,28 +61,21 @@
               <a
                 href="#beranda"
                 class="text-colors-primary hover:text-colors-primary font-semibold"
-                >Beranda</a
+                >Home</a
               >
             </li>
             <li>
-              <a href="#profile" class="hover:text-colors-primary"
-                >Tentang Kami</a
-              >
+              <a href="#about" class="hover:text-colors-primary">About</a>
             </li>
             <li>
               <a href="#program" class="hover:text-colors-primary">Program</a>
             </li>
             <li>
-              <a href="#extra" class="hover:text-colors-primary"
-                >Extrakulikuler</a
-              >
+              <a href="#team" class="hover:text-colors-primary">Team</a>
             </li>
 
             <li>
-              <a href="#berita" class="hover:text-colors-primary">Berita</a>
-            </li>
-            <li>
-              <a href="#galeri" class="hover:text-colors-primary">Galeri</a>
+              <a href="#contact" class="hover:text-colors-primary">Contact</a>
             </li>
           </ul>
           <!-- End Navlink -->
@@ -91,26 +84,23 @@
           <!-- Hamburger -->
           <div
             id="hamburger"
-            class="lg:hidden cursor-pointer z-50"
+            class="md:hidden cursor-pointer z-50"
             @click="isOpen = !isOpen"
           >
-            <div :class="isOpen ? 'hidden' : ''" class="text-white">
-              <i
-                class="fa-solid fa-bars bg-colors-primary/40 p-2 rounded-full"
-              ></i>
+            <div :class="isOpen ? 'hidden' : ''" class="text-black">
+              <i class="fa-solid fa-bars text-xl"></i>
             </div>
 
-            <div :class="isOpen ? '' : 'hidden'" class="text-white">
-              <i
-                class="fa-solid fa-xmark bg-colors-primary/40 py-2 px-[9px] rounded-full"
-              ></i>
+            <div :class="isOpen ? '' : 'hidden'" class="text-black">
+              <i class="fa-solid fa-xmark text-xl"></i>
             </div>
           </div>
           <!-- End Humberger -->
 
           <!-- Nav link Mobile -->
           <div
-            class="lg:hidden bg-white dark:bg-dark-color h-[100vh] absolute inset-0"
+            class="md:hidden bg-white dark:bg-dark-color h-[100vh] absolute inset-0"
+            x-cloak
             x-show="isOpen"
             x-transition:enter="transition ease duration-700 transform"
             x-transition:enter-start="opacity-0 translate-x-full"
@@ -122,18 +112,18 @@
             <ul class="h-full grid place-items-center py-20 dark:text-white">
               <li>
                 <a
-                  href="#beranda"
+                  href="#home"
                   class="text-colors-primary hover:text-colors-primary font-semibold"
                   @click="isOpen = !isOpen"
-                  >Beranda</a
+                  >Home</a
                 >
               </li>
               <li>
                 <a
-                  href="#profile"
+                  href="#about"
                   class="hover:text-colors-primary"
                   @click="isOpen = !isOpen"
-                  >Tentang Kami</a
+                  >About</a
                 >
               </li>
               <li>
@@ -146,30 +136,20 @@
               </li>
               <li>
                 <a
-                  href="#extra"
+                  href="#team"
                   class="hover:text-colors-primary"
                   @click="isOpen = !isOpen"
-                  >Extrakulikuler</a
+                  >Team</a
                 >
               </li>
               <li>
                 <a
-                  href="#berita"
+                  href="#contact"
                   class="hover:text-colors-primary"
                   @click="isOpen = !isOpen"
-                  >Berita</a
+                  >Contact</a
                 >
               </li>
-              <li>
-                <a
-                  href="#galeri"
-                  class="hover:text-colors-primary"
-                  @click="isOpen = !isOpen"
-                  >Galeri</a
-                >
-              </li>
-
-              <button class="btn">Contact</button>
             </ul>
           </div>
           <!-- End Navling Mobile -->
@@ -180,10 +160,135 @@
     <!-- End Header -->
 
     <!-- Hero -->
-    <div class="py-20 container">
-      <div>tes</div>
-    </div>
+    <section id="hero">
+      <div class="container py-12 md:py-14 lg:py-16">
+        <div
+          class="flex flex-col-reverse items-center gap-8 lg:flex-row lg:justify-between lg:gap-0"
+        >
+          <div class="lg:w-1/2 space-y-6">
+            <h1
+              class="text-3xl md:text-5xl text-center lg:text-start font-bold leading-10 md:leading-[60px] md:w-3/4 md:mx-auto lg:w-full"
+            >
+              Building Bridges, changing the world
+            </h1>
+            <p class="font-light leading-relaxed text-justify lg:text-start">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+              officiis sapiente magni enim, architecto dignissimos asperiores
+              facilis ex iste delectus.
+            </p>
+
+            <div class="md:flex md:justify-center lg:block">
+              <a href="#about" class="btn text-sm md:text-base"
+                >More About Us <i class="ms-3 fa-solid fa-arrow-down"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 lg:flex lg:justify-end">
+            <div
+              class="w-[330px] h-[240px] md:w-[450px] md:h-[550px] rounded-3xl overflow-hidden"
+            >
+              <img
+                src="assets/img/hero-img.jpg"
+                alt=""
+                class="w-full h-full object-cover rounded-3xl hover:scale-110 transition-all duration-300"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner -->
+      <div class="bg-color-body py-6">
+        <div
+          class="container lg:w-3/4 lg:mx-auto grid grid-cols-2 md:grid-cols-4 place-items-center gap-x-4 gap-y-6"
+        >
+          <img src="assets/img/partner-1.png" alt="" class="w-3/4" />
+          <img src="assets/img/partner-2.png" alt="" class="w-3/4" />
+          <img src="assets/img/partner-3.png" alt="" class="w-3/4" />
+          <img src="assets/img/partner-4.png" alt="" class="w-3/4" />
+        </div>
+      </div>
+    </section>
     <!-- End Hero -->
+
+    <!-- About Us -->
+    <section id="about">
+      <div class="container py-12 md:py-14 lg:py-16">
+        <div class="flex justify-center">
+          <h1
+            class="text-center text-2xl py-2 md:text-4xl uppercase font-bold border-b border-colors-primary"
+          >
+            About Us
+          </h1>
+        </div>
+        <div
+          class="flex flex-col items-center gap-6 lg:flex-row lg:justify-between lg:gap-0 pt-8 md:pt-14"
+        >
+          <div class="lg:w-1/2">
+            <div
+              class="w-[340px] h-[350px] md:w-[450px] md:h-[550px] rounded-3xl overflow-hidden"
+            >
+              <img
+                src="assets/img/team.jpg"
+                alt=""
+                class="w-full h-full object-cover rounded-3xl"
+              />
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 space-y-4">
+            <h1
+              class="text-center lg:text-start text-xl md:text-2xl font-semibold"
+            >
+              Lorem ipsum dolor sit amet.
+            </h1>
+            <p class="leading-loose text-justify lg:text-start">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+              assumenda nisi porro, blanditiis, soluta ipsa, dicta provident
+              atque culpa beatae ex deserunt excepturi odio laudantium facere
+              voluptatibus dignissimos asperiores libero incidunt repellat
+              pariatur eveniet quae accusamus natus. Iste quas quaerat
+              distinctio pariatur nesciunt reprehenderit a assumenda similique
+              sapiente, vero in!
+            </p>
+          </div>
+        </div>
+
+        <!-- We are since -->
+        <div
+          class="flex flex-col items-center gap-6 lg:flex-row-reverse lg:justify-between lg:gap-0 pt-10 md:pt-14"
+        >
+          <div class="lg:w-1/2">
+            <div
+              class="w-[340px] h-[350px] md:w-[450px] md:h-[550px] rounded-3xl overflow-hidden lg:ms-auto"
+            >
+              <img
+                src="assets/img/team-2.jpg"
+                alt=""
+                class="w-full h-full object-cover rounded-3xl"
+              />
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 space-y-4">
+            <h1
+              class="text-center lg:text-start text-xl md:text-2xl font-semibold"
+            >
+              We Are Since 2012.
+            </h1>
+            <p class="leading-loose text-justify lg:text-start">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+              assumenda nisi porro, blanditiis, soluta ipsa, dicta provident
+              atque culpa beatae ex deserunt excepturi odio laudantium facere
+              voluptatibus dignissimos asperiores libero incidunt repellat
+              pariatur eveniet quae accusamus natus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Us -->
 
     <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
   </body>
